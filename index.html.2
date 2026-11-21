@@ -1,1 +1,104 @@
 
+// MARTABA DATA - Backend (Node.js + Express)
+// Yadda ake gudanarwa:
+// 1. npm install
+// 2. Saka Secret Key a .env
+// 3. npm start  -> zai tashi a http://localhost:3000
+
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public')); // Saka martaba-paystack.html anan
+
+const PAYSTACK_SECRET = process.env.PAYSTACK_SECRET_KEY;
+if(!PAYSTACK_SECRET){
+  console.log('⚠️  BAKA SAKA PAYSTACK_SECRET_KEY BA a .env');
+}
+
+// Database na wucin gadi - A LIVE ka maye gurbin da MongoDB / MySQL / Supabase
+let users = {}; // { email: { balance: 0 } }
+let transactions = [];
+
+function getUser(email){
+  if(!users[email]) users[email] = { email, balance: 0 };
+  return users[email];
+}
+
+// 1. VERIFY PAYMENT - Wannan shi ne mafi muhimmanci
+app.post('/api/verify-payment', async (req, res) => {
+  try{
+    const { reference, email } = req.body;
+    if(!reference || !email) return res.status(400).json({ success:false, message:'Reference da email ake bukata' });
+
+    // Kira Paystack don tabbatarwa da gaske
+    const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
+      headers: { Authorization: `Bearer ${PAYSTACK_SECRET}` }
+    });
+    const data = await response.json();
+
+    if(!data.status || data.data.status !== 'success'){
+      return res.json({ success:false, message:'Biyan bai yi nasara ba. Status: ' + (data.data?.status || 'unknown') });
+    }
+
+    // Tabbatar adadin da email sun zo daidai
+    const amountPaid = data.data.amount / 100; // Paystack yana a kobo
+    const paidEmail = data.data.customer.email;
+    if(paidEmail.toLowerCase() !== email.toLowerCase()){
+      return res.json({ success:false, message:'Email bai zo daya ba' });
+    }
+
+    // Kada a kara kudi sau biyu idan an riga an verify wannan reference
+    if(transactions.find(t => t.reference === reference && t.status === 'success')){
+      return res.json({ success:false, message:'An riga an tabbatar da wannan biyan' });
+    }
+
+    const user = getUser(email);
+    user.balance += amountPaid;
+
+    transactions.unshift({
+      reference, email, amount: amountPaid,
+      type: 'Wallet Funding',
+      status: 'success',
+      date: new Date().toLocaleString('en-NG')
+    });
+
+    return res.json({ success:true, message:`An kara ₦${amountPaid.toLocaleString()} a wallet dinka`, balance: user.balance });
+
+  }catch(err){
+    console.error(err);
+    return res.status(500).json({ success:false, message:'Backend error: ' + err.message });
+  }
+});
+
+// 2. WEBHOOK - Paystack zai kira wannan da kansa idan biya ya shiga
+app.post('/api/paystack-webhook', express.raw({type:'application/json'}), (req, res) => {
+  const crypto = require('crypto');
+  const hash = crypto.createHmac('sha512', PAYSTACK_SECRET).update(req.body).digest('hex');
+  if(hash !== req.headers['x-paystack-signature']){
+    return res.status(401).send('Invalid signature');
+  }
+  const event = JSON.parse(req.body.toString());
+  if(event.event === 'charge.success'){
+    console.log('✅ Webhook: Biya ya shiga -', event.data.reference, event.data.amount/100);
+    // Anan ka kara balance a DB dinka
+  }
+  res.sendStatus(200);
+});
+
+// 3. Duba Balance
+app.get('/api/balance/:email', (req,res)=>{
+  const user = getUser(req.params.email);
+  res.json({ email: user.email, balance: user.balance });
+});
+
+// 4. History
+app.get('/api/transactions/:email', (req,res)=>{
+  res.json(transactions.filter(t=>t.email===req.params.email));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT
