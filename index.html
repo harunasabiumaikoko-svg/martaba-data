@@ -1,253 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Martaba Data</title>
-
+<!doctype html>
+<html lang="ha"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#082f25">
+<title>MARTABA DATA — Haɗinka da Sauƙi</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f7fb;
-color:#222;
-}
-
-header{
-background:#003366;
-color:#fff;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-}
-
-.logo span{
-color:#FFD700;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
-font-size:15px;
-}
-
-.hero{
-background:linear-gradient(135deg,#003366,#0055aa);
-color:white;
-padding:70px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.hero h1 span{
-color:#FFD700;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:25px;
-}
-
-.btn{
-display:inline-block;
-background:#FFD700;
-color:#003366;
-padding:15px 30px;
-border-radius:8px;
-font-weight:bold;
-text-decoration:none;
-}
-
-.section{
-padding:60px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:30px;
-margin-bottom:30px;
-}
-
-.networks{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card h3{
-margin-bottom:10px;
-color:#003366;
-}
-  .card p{
-color:#666;
-font-size:15px;
-}
-
-.plans{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.plan{
-background:#fff;
-padding:25px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-.plan h3{
-color:#003366;
-margin-bottom:10px;
-}
-
-.price{
-font-size:28px;
-color:#FFD700;
-font-weight:bold;
-margin:15px 0;
-}
-
-.buy-btn{
-display:inline-block;
-background:#003366;
-color:#fff;
-padding:12px 20px;
-border-radius:6px;
-text-decoration:none;
-}
-
-footer{
-background:#003366;
-color:#fff;
-text-align:center;
-padding:25px;
-margin-top:40px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
-@media(max-width:768px){
-.hero h1{
-font-size:30px;
-}
-nav{
-display:none;
-}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">Martaba <span>Data</span></div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Buy Data</a>
-<a href="#">Wallet</a>
-<a href="#">Login</a>
-<a href="#">Register</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>Welcome to <span>Martaba Data</span></h1>
-<p>Fast, Reliable & Affordable VTU Services in Nigeria.</p>
-
-<a class="btn" href="#">Buy Data Now</a>
-</section>
-
-<section class="section">
-<h2>Available Networks</h2>
-
-<div class="networks">
-
-<div class="card">
-<h3>MTN</h3>
-<p>
-  <section class="section">
-<h2>Popular Data Plans</h2>
-
-<div class="plans">
-
-<div class="plan">
-<h3>MTN SME</h3>
-<div class="price">₦300</div>
-<p>1GB Data Plan</p><br>
-<a href="#" class="buy-btn">Buy Now</a>
-</div>
-
-<div class="plan">
-<h3>Airtel</h3>
-<div class="price">₦500</div>
-<p>2GB Data Plan</p><br>
-<a href="#" class="buy-btn">Buy Now</a>
-</div>
-
-<div class="plan">
-<h3>Glo</h3>
-<div class="price">₦950</div>
-<p>5GB Data Plan</p><br>
-<a href="#" class="buy-btn">Buy Now</a>
-</div>
-
-</div>
-</section>
-
-<footer>
-<p>&copy; 2026 Martaba Data. All Rights Reserved.</p>
-<p>Fast • Secure • Reliable VTU Platform</p>
-</footer>
-
-<a href="https://wa.me/2340000000000" class="whatsapp">
-WhatsApp
-</a>
-
-</body>
-  </html>
+:root{--g:#087b55;--d:#082f25;--gold:#d4af37;--bg:#f5f8f6;--ink:#17251f;--muted:#718078;--line:#e3ebe5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif}header{background:var(--d);color:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:5}.logo{font-weight:900;font-size:23px;letter-spacing:1px}.logo span{color:var(--gold)}nav{display:flex;gap:7px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;padding:10px;border-radius:8px;font-size:13px;font-weight:bold}nav a:hover{background:#ffffff18}button,.btn{border:0;border-radius:10px;padding:11px 15px;background:var(--g);color:white;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}button.light,.btn.light{background:#fff;color:var(--d);border:1px solid var(--line)}button.gold,.btn.gold{background:var(--gold);color:#28220e}button.red{background:#b43b3b}button.small{padding:7px 9px;font-size:12px}.menu{display:none;background:#ffffff20}
+.hero{padding:55px 6%;display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;background:linear-gradient(120deg,#e7f3eb,#f9fbf9)}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin:10px 0}.hero h1 span,.eyebrow{color:var(--g)}.hero p,.muted{color:var(--muted);line-height:1.6}.eyebrow{font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero-box{background:var(--d);color:#fff;border-radius:22px;padding:27px;box-shadow:0 18px 40px #082f2528}.hero-box strong{display:block;color:var(--gold);font-size:30px;margin:18px 0}
+main{max-width:1150px;margin:28px auto;padding:0 17px}.screen{display:none}.screen.active{display:block}.section{padding:22px 0}.section h2{margin:0 0 7px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel,.plan{background:white;border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:0 8px 25px #082f2510}.card{border-top:4px solid var(--gold)}.mark{width:42px;height:42px;background:var(--d);color:var(--gold);display:grid;place-items:center;border-radius:12px;font-weight:bold}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.plan{box-shadow:none}.plan h3{margin:6px 0}.price{font-size:27px;color:var(--g);font-weight:900;margin:10px 0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}label{font-size:13px;font-weight:bold;color:#43564b}input,select{width:100%;padding:13px;border:1px solid #dce7df;border-radius:10px;font-size:15px;background:white}.form{max-width:650px;margin:24px auto}.actions,.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.notice{padding:12px;background:#fff7e3;border:1px solid #f0dfad;color:#70551a;border-radius:10px;font-size:13px;line-height:1.5;margin:13px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.stat small{color:var(--muted)}.stat strong{display:block;color:var(--d);font-size:23px;margin-top:8px;overflow-wrap:anywhere}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.wallet{background:linear-gradient(110deg,var(--d),#0b7652);color:#fff;padding:22px;border-radius:18px;margin:15px 0}.wallet h2{font-size:32px;color:var(--gold);margin:8px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0}.admin{display:grid;grid-template-columns:180px 1fr;gap:14px}.side{background:var(--d);padding:14px;border-radius:15px;color:#fff;height:max-content}.side button{display:block;width:100%;text-align:left;background:#ffffff1a;margin:5px 0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:11px;color:var(--muted);text-transform:uppercase}.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:20px}.badge{background:#e3f5e9;color:#08744d;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}footer{background:var(--d);color:white;text-align:center;padding:25px;margin-top:40px}footer span{color:var(--gold)}.wa{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:bold;z-index:4}
+@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.plans{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.admin{grid-template-columns:1fr}}
+@media(max-width:620px){.menu{display:block}nav{display:none;width:100%;flex-direction:column}nav.open{display:flex}nav a{background:#ffffff14}.hero{grid-template-columns:1fr;padding:38px 6%}.plans,.grid2,.fields{grid-template-columns:1fr}.full{grid-column:auto}.hero-box{padding:21px}}
+</style></head><body>
+<header><div class="logo">MARTABA <span>DATA</span></div><button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰ Menu</button><nav id="nav">
+<a href="#" onclick="go('home');return false">Home</a><a href="#" onclick="go('plans');return false">Buy Data</a><a href="#" onclick="go('dashboard');return false">Wallet</a><a href="#" onclick="go('login');return false">Login</a><a href="#" onclick="go('register');return false">Register</a></nav></header>
+<section id="home" class="screen active"><div class="hero"><div><div class="eyebrow">Haɗinka da Sauƙi</div><h1>Data da airtime cikin <span>sauƙi.</span></h1><p>Fast, Reliable & Affordable VTU Services in Nigeria. Zaɓi network, zaɓi plan, ka bibiyi transactions ɗinka.</p><div class="actions"><button class="gold" onclick="go('plans')">Buy Data Now →</button><button class="light" onclick="go('register')">Buɗe Account</button></div></div><div class="hero-box"><div class="eyebrow" style="color:var(--gold)">MARTABA DATA</div><h2>Smart VTU Services</h2><p style="color:#d8e5dd">Data • Airtime • Wallet • Transaction History</p><strong>Fast & Reliable</strong><p style="color:#d8e5dd">Sabis na dijital cikin sauƙi, a wuri guda.</p></div></div>
+<main><section class="section"><h2>Available Networks</h2><p class="muted">Zaɓi network domin ganin data plans.</p><div class="cards">
+<div class="card"><div class="mark">MTN</div><h3>MTN</h3><button class="light" onclick="filterNet('MTN')">Duba plans</button></div><div class="card"><div class="mark">A</div><h3>Airtel</h3><button class="light" onclick="filterNet('Airtel')">Duba plans</button></div><div class="card"><div class="mark">G</div><h3>Glo</h3><button class="light" onclick="filterNet('Glo')">Duba plans</button></div><div class="card"><div class="mark">9</div><h3>9mobile</h3><button class="light" onclick="filterNet('9mobile')">Duba plans</button></div></div></section>
+<section class="section"><h2>Popular Data Plans</h2><div class="plans" id="homePlans"></div></section></main></section>
+<main>
+<section id="plans" class="screen"><div class="topline"><div><div class="eyebrow">VTU Services</div><h2>Buy Data</h2><p class="muted">Zaɓi network da plan ɗin da kake so.</p></div><button class="light" onclick="go('home')">← Home</button></div><div class="toolbar"><select id="netFilter" onchange="renderPlans()"><option value="all">Dukkan networks</option><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select><input id="planSearch" placeholder="Nemo plan..." oninput="renderPlans()"></div><div class="plans" id="allPlans"></div><div class="notice">Demo ne: ba a haɗa VTU API ko payment gateway ba, saboda haka ba a aika data na gaske.</div></section>
+<section id="register" class="screen"><div class="panel form"><div class="eyebrow">Create Account</div><h2>Ƙirƙiri sabon account</h2><div class="fields"><div class="field"><label>Sunan farko</label><input id="rf" placeholder="Haruna"></div><div class="field"><label>Sunan ƙarshe</label><input id="rl" placeholder="Sabiu"></div><div class="field"><label>Lambar waya</label><input id="rp" placeholder="080..."></div><div class="field"><label>Email</label><input id="re" type="email" placeholder="name@example.com"></div><div class="field"><label>Password</label><input id="rpass" type="password" placeholder="Aƙalla haruffa 8"></div><div class="field"><label>Tabbatar da password</label><input id="rpass2" type="password"></div></div><div class="notice">Demo ne kawai. Kada ka yi amfani da password mai muhimmanci.</div><div class="actions"><button onclick="register()">Create Account</button><button class="light" onclick="go('login')">Ina da account</button></div></div></section>
+<section id="login" class="screen"><div class="panel form"><h2>Login</h2><div class="field"><label>Email ko waya</label><input id="li" placeholder="Email / Phone"></div><div class="field" style="margin-top:12px"><label>Password</label><input id="lp" type="password"></div><div class="actions"><button onclick="login()">Login</button><button class="light" onclick="go('register')">Register</button></div><div class="notice">Admin demo login: <b>admin@martabadata.demo</b> / <b>MartabaDemo2026</b>. Canza wannan kafin live launch.</div></div></section>
+<section id="dashboard" class="screen"><div class="topline"><div><div class="eyebrow">My Account</div><h2 id="welcome">Dashboard</h2><p class="muted" id="meta"></p></div><button class="light" onclick="logout()">Logout</button></div><div class="wallet"><small>MARTABA DATA WALLET</small><h2 id="balance">₦0</h2><span id="walletPhone"></span> • <span class="badge" id="accountStatus">Active</span></div>
+<div class="stats"><div class="stat"><small>Wallet Balance</small><strong id="sBal">₦0</strong></div><div class="stat"><small>Purchases</small><strong id="sBuy">0</strong></div><div class="stat"><small>Total Spent</small><strong id="sSpent">₦0</strong></div><div class="stat"><small>Transactions</small><strong id="sTx">0</strong></div></div>
+<div class="grid2"><div class="panel"><h3>Fund Wallet (Demo)</h3><p class="muted">Aika deposit request domin Admin ya amince.</p><div class="field"><label>Adadin (₦)</label><input id="depAmount" type="number" min="100"></div><div class="actions"><button onclick="depositRequest()">Aika request</button></div></div><div class="panel"><h3>Buy Airtime (Demo)</h3><div class="field"><label>Network</label><select id="airNet"><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select></div><div class="field" style="margin-top:8px"><label>Lambar waya</label><input id="airPhone" placeholder="08012345678"></div><div class="field" style="margin-top:8px"><label>Adadi (₦)</label><input id="airAmount" type="number" min="50"></div><div class="actions"><button onclick="buyAirtime()">Buy Airtime</button></div></div></div>
+<div class="panel"><div class="topline"><h3>Transaction History</h3><button class="light small" onclick="exportMine()">Export CSV</button></div><div class="tablewrap"><table><thead><tr><th>Date</th><th>Type</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead><tbody id="myTx"></tbody></table></div></div><div class="actions"><button onclick="go('plans')">Buy Data</button></div></section>
+<section id="admin" class="screen"><div class="topline"><div><div class="eyebrow">Control Center</div><h2>Martaba Data Admin</h2><p class="muted">Gudanar da users, plans, deposits da transactions.</p></div><button class="light" onclick="logout()">Logout</button></div><div class="stats"><div class="stat"><small>Total Users</small><strong id="aUsers">0</strong></div><div class="stat"><small>Wallet Funds</small><strong id="aWallet">₦0</strong></div><div class="stat"><small>Pending Deposits</small><strong id="aPending">0</strong></div><div class="stat"><small>Total Orders</small><strong id="aOrders">0</strong></div></div>
+<div class="admin"><aside class="side"><b>ADMIN MENU</b><button onclick="tab('users')">👥 Users</button><button onclick="tab('plans')">📦 Data Plans</button><button onclick="tab('deposits')">💳 Deposits</button><button onclick="tab('orders')">🧾 Transactions</button><button onclick="tab('settings')">⚙️ Settings</button></aside><div class="panel">
+<div id="tabUsers"><div class="topline"><h3>User Management</h3><button class="light small" onclick="exportUsers()">Export CSV</button></div><div class="toolbar"><input id="userSearch" placeholder="Nemo suna, waya ko email..." oninput="renderUsers()"><select id="userFilter" onchange="renderUsers()"><option value="all">Dukkan status</option><option>Active</option><option>Suspended</option></select></div><div class="tablewrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Wallet</th><th>Status</th><th>Action</th></tr></thead><tbody id="usersTable"></tbody></table></div></div>
+<div id="tabPlans" class="hidden"><h3>Manage Data Plans</h3><div class="fields"><div class="field"><label>Network</label><select id="pn"><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select></div><div class="field"><label>Plan / Size</label><input id="pname" placeholder="1GB"></div><div class="field"><label>Price (₦)</label><input id="pprice" type="number" min="1"></div><div class="field"><label>Type</label><select id="ptype"><option>SME</option><option>Gifting</option><option>Corporate</option></select></div></div><div class="actions"><button onclick="addPlan()">Add Plan</button></div><div class="tablewrap" style="margin-top:15px"><table><thead><tr><th>Network</th><th>Plan</th><th>Type</th><th>Price</th><th>Status</th><th>Action</th></tr></thead><tbody id="plansTable"></tbody></table></div></div>
+<div id="tabDeposits" class="hidden"><h3>Wallet Deposit Requests</h3><div class="tablewrap"><table><thead><tr><th>User</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="depositsTable"></tbody></table></div></div>
+<div id="tabOrders" class="hidden"><h3>All Transactions</h3><div class="tablewrap"><table><thead><tr><th>User</th><th>Date</th><th>Type</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead><tbody id="ordersTable"></tbody></table></div></div>
+<div id="tabSettings" class="hidden"><h3>Platform Settings</h3><p class="muted">A haɗa VTU API, payment gateway, OTP da database mai tsaro a backend kafin live launch.</p><div class="notice">LocalStorage ba database ko wallet mai tsaro ba ne. Wannan sigar demo ce kawai.</div><button class="light" onclick="exportTransactions()">Export transactions CSV</button></div>
+</div></div></section>
+</main><footer><b>MARTABA <span>DATA</span></b><p>Haɗinka da Sauƙi • Fast • Reliable • Affordable</p><p>© 2026 Martaba Data. All Rights Reserved.</p></footer><a class="wa" href="https://wa.me/2340000000000" target="_blank" rel="noopener">WhatsApp</a>
+<script>
+const ADMIN="admin@martabadata.demo",ADMINPASS="MartabaDemo2026",K={u:"md_users",p:"md_plans",t:"md_tx",d:"md_dep",s:"md_session"};
+function get(k,d){try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch(e){return d}}function put(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function money(n){return "₦"+Number(n||0).toLocaleString("en-NG")}function uid(){return "MD"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}function date(){return new Date().toLocaleString("en-NG")}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function go(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.getElementById("nav").classList.remove("open");scrollTo(0,0);if(id==="dashboard")renderDash();if(id==="admin")renderAdmin()}
+function allUsers(){return get(K.u,[])}function getPlans(){return get(K.p,[])}function txs(){return get(K.t,[])}function me(){let s=get(K.s,null);return s&&s.type==="user"?allUsers().find(u=>u.email===s.email):null}
+function seed(){if(!localStorage.getItem(K.p))put(K.p,[["MTN","1GB","SME",470],["MTN","2GB","SME",950],["MTN","3GB","SME",1400],["MTN","5GB","SME",2300]].map(a=>({id:uid(),network:a[0],name:a[1],type:a[2],price:a[3],active:true})));if(!localStorage.getItem(K.u))put(K.u,[]);if(!localStorage.getItem(K.t))put(K.t,[]);if(!localStorage.getItem(K.d))put(K.d,[])}
+function loginSession(email,type){put(K.s,{email,type});go(type==="admin"?"admin":"dashboard")}
+function register(){let f=rf.value.trim(),l=rl.value.trim(),p=rp.value.trim(),e=re.value.trim().toLowerCase(),pw=rpass.value;if(!f||!l||!p||!e||!pw)return alert("Cika duk bayanai.");if(pw.length<8)return alert("Password ya zama aƙalla haruffa 8.");if(pw!==rpass2.value)return alert("Password bai zo ɗaya ba.");if(e===ADMIN||allUsers().some(u=>u.email===e||u.phone===p))return alert("An riga an yi amfani da email ko waya.");let list=allUsers();list.push({id:uid(),name:f+" "+l,phone:p,email:e,pass:pw,balance:0,status:"Active",created:date()});put(K.u,list);loginSession(e,"user")}
+function login(){let e=li.value.trim().toLowerCase(),pw=lp.value;if(e===ADMIN&&pw===ADMINPASS)return loginSession(ADMIN,"admin");let u=allUsers().find(x=>(x.email===e||x.phone===e)&&x.pass===pw);if(!u)return alert("Email/waya ko password ba daidai ba.");if(u.status!=="Active")return alert("An dakatar da account ɗin.");loginSession(u.email,"user")}
+function logout(){localStorage.removeItem(K.s);go("home")}
+function card(p){return `<div class="plan"><div class="eyebrow">${esc(p.network)} • ${esc(p.type)}</div><h3>${esc(p.name)} Data</h3><div class="price">${money(p.price)}</div><button onclick="buy('${p.id}')">Buy Now</button></div>`}
+function showPlans(){let f=netFilter.value,q=planSearch.value.toLowerCase(),list=getPlans().filter(p=>p.active&&(f==="all"||p.network===f)&&(!q||(p.name+p.network+p.type).toLowerCase().includes(q)));allPlans.innerHTML=list.length?list.map(card).join(""):'<div class="panel empty">Babu plans a wannan zaɓin.</div>'}
+function filterNet(n){netFilter.value=n;go("plans");showPlans()}
+function buy(pid){let u=me();if(!u){alert("Ka fara Login.");go("login");return}let p=getPlans().find(x=>x.id===pid&&x.active);if(!p)return;if(u.balance<p.price){alert("Wallet balance bai isa ba.");go("dashboard");return}if(!confirm("Sayen "+p.network+" "+p.name+" akan "+money(p.price)+"?"))return;u.balance-=p.price;saveUser(u);addTx(u,"Data",p.network+" "+p.name,p.price,"Demo - Not Sent");renderDash();alert("An rubuta order na demo. Ba a aika data ba saboda babu VTU API.")}
+function saveUser(u){let a=allUsers(),i=a.findIndex(x=>x.id===u.id);if(i>=0)a[i]=u;put(K.u,a)}
+function addTx(u,type,desc,amount,status){let a=txs();a.unshift({id:uid(),email:u.email,name:u.name,date:date(),type,desc,amount,status});put(K.t,a)}
+function buyAirtime(){let u=me(),phone=airPhone.value.trim(),amount=Number(airAmount.value),network=airNet.value;if(!u)return;if(!/^0\\d{10}$/.test(phone)||amount<50||!Number.isFinite(amount))return alert("Duba lambar waya da adadi.");if(amount>u.balance)return alert("Wallet balance bai isa ba.");if(!confirm("Sayen airtime "+network+" "+phone+" na "+money(amount)+"?"))return;u.balance-=amount;saveUser(u);addTx(u,"Airtime",network+" → "+phone,amount,"Demo - Not Sent");renderDash();alert("Demo order kawai; ba a aika airtime ba.")}
+function depositRequest(){let u=me(),amount=Number(depAmount.value);if(!u)return;if(!Number.isFinite(amount)||amount<100)return alert("Shigar da adadin da ya dace (₦100 ko sama).");let a=get(K.d,[]);a.unshift({id:uid(),email:u.email,name:u.name,amount,date:date(),status:"Pending"});put(K.d,a);depAmount.value="";alert("An aika deposit request ga Admin. Ba a karɓi kuɗi kai tsaye ba.")}
+function renderDash(){let u=me();if(!u){go("login");return}welcome.textContent="Maraba, "+u.name;meta.textContent=u.email+" • "+u.phone;balance.textContent=
