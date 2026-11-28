@@ -54,3 +54,39 @@ function addTx(u,type,desc,amount,status){let a=txs();a.unshift({id:uid(),email:
 function buyAirtime(){let u=me(),phone=airPhone.value.trim(),amount=Number(airAmount.value),network=airNet.value;if(!u)return;if(!/^0\\d{10}$/.test(phone)||amount<50||!Number.isFinite(amount))return alert("Duba lambar waya da adadi.");if(amount>u.balance)return alert("Wallet balance bai isa ba.");if(!confirm("Sayen airtime "+network+" "+phone+" na "+money(amount)+"?"))return;u.balance-=amount;saveUser(u);addTx(u,"Airtime",network+" → "+phone,amount,"Demo - Not Sent");renderDash();alert("Demo order kawai; ba a aika airtime ba.")}
 function depositRequest(){let u=me(),amount=Number(depAmount.value);if(!u)return;if(!Number.isFinite(amount)||amount<100)return alert("Shigar da adadin da ya dace (₦100 ko sama).");let a=get(K.d,[]);a.unshift({id:uid(),email:u.email,name:u.name,amount,date:date(),status:"Pending"});put(K.d,a);depAmount.value="";alert("An aika deposit request ga Admin. Ba a karɓi kuɗi kai tsaye ba.")}
 function renderDash(){let u=me();if(!u){go("login");return}welcome.textContent="Maraba, "+u.name;meta.textContent=u.email+" • "+u.phone;balance.textContent=
+"+u.name;meta.textContent=u.email+" • "+u.phone;balance.textContent=money(u.balance);walletPhone.textContent=u.phone;sBal.textContent=money(u.balance);let my=txs().filter(t=>t.email===u.email);sBuy.textContent=my.filter(t=>t.type==="Data"||t.type==="Airtime").length;sSpent.textContent=money(my.reduce((s,t)=>s+Number(t.amount||0),0));sTx.textContent=my.length;myTx.innerHTML=my.length?my.map(t=>`<tr><td>${esc(t.date)}</td><td>${esc(t.type)}</td><td>${esc(t.desc)}</td><td>${money(t.amount)}</td><td><span class="badge">${esc(t.status)}</span></td></tr>`).join(""):'<tr><td colspan="5" class="empty">Babu transactions tukuna.</td></tr>';}
+function renderAdmin(){let users=allUsers(),deps=get(K.d,[]),all=txs();aUsers.textContent=users.length;aWallet.textContent=money(users.reduce((s,u)=>s+Number(u.balance||0),0));aPending.textContent=deps.filter(d=>d.status==="Pending").length;aOrders.textContent=all.length;renderUsers();renderPlansTable();renderDeposits();renderOrders();}
+function renderUsers(){let q=(userSearch.value||"").toLowerCase(),f=userFilter.value;usersTable.innerHTML=allUsers().filter(u=>(f==="all"||u.status===f)&&(!q||(u.name+u.phone+u.email).toLowerCase().includes(q))).map(u=>`<tr><td>${esc(u.name)}</td><td>${esc(u.phone)}</td><td>${esc(u.email)}</td><td>${money(u.balance)}</td><td>${esc(u.status)}</td><td><button class="small light" onclick="toggleUser('${u.id}')">Dakatar / Saki</button></td></tr>`).join("")||'<tr><td colspan="6" class="empty">Babu users.</td></tr>';}
+function toggleUser(id){let a=allUsers(),u=a.find(x=>x.id===id);if(!u)return;u.status=u.status==="Active"?"Suspended":"Active";put(K.u,a);renderAdmin();}
+function renderPlansTable(){plansTable.innerHTML=getPlans().map(p=>`<tr><td>${esc(p.network)}</td><td>${esc(p.name)}</td><td>${esc(p.type)}</td><td>${money(p.price)}</td><td>${p.active?"Active":"Off"}</td><td><button class="small red" onclick="delPlan('${p.id}')">Goge</button></td></tr>`).join("")||'<tr><td colspan="6" class="empty">Babu plans.</td></tr>';}
+function delPlan(id){put(K.p,getPlans().filter(p=>p.id!==id));renderPlansTable();showPlans();}
+function addPlan(){let n=pn.value,name=pname.value.trim(),price=Number(pprice.value),type=ptype.value;if(!name||!price)return alert("Cika plan da farashi.");let a=getPlans();a.push({id:uid(),network:n,name,type,price,active:true});put(K.p,a);pname.value="";pprice.value="";renderPlansTable();showPlans();}
+function renderDeposits(){depositsTable.innerHTML=get(K.d,[]).map(d=>`<tr><td>${esc(d.name)}<br><small>${esc(d.email)}</small></td><td>${money(d.amount)}</td><td>${esc(d.date)}</td><td>${esc(d.status)}</td><td>${d.status==="Pending"?`<button class="small" onclick="approveDep('${d.id}')">Amince</button>`:''}</td></tr>`).join("")||'<tr><td colspan="5" class="empty">Babu requests.</td></tr>';}
+function approveDep(id){let deps=get(K.d,[]),d=deps.find(x=>x.id===id);if(!d)return;d.status="Approved";let a=allUsers(),u=a.find(x=>x.email===d.email);if(u){u.balance+=Number(d.amount);put(K.u,a);}put(K.d,deps);renderAdmin();}
+function renderOrders(){ordersTable.innerHTML=txs().map(t=>`<tr><td>${esc(t.name)}<br><small>${esc(t.email)}</small></td><td>${esc(t.date)}</td><td>${esc(t.type)}</td><td>${esc(t.desc)}</td><td>${money(t.amount)}</td><td>${esc(t.status)}</td></tr>`).join("")||'<tr><td colspan="6" class="empty">Babu transactions.</td></tr>';}
+function tab(id){["tabUsers","tabPlans","tabDeposits","tabOrders","tabSettings"].forEach(t=>document.getElementById(t).classList.add("hidden"));document.getElementById("tab"+id.charAt(0).toUpperCase()+id.slice(1)).classList.remove("hidden");}
+function exportMine(){let u=me();if(!u)return;let rows=txs().filter(t=>t.email===u.email);downloadCSV("martaba-my-transactions.csv",rows);}
+function exportUsers(){downloadCSV("martaba-users.csv",allUsers());}
+function exportTransactions(){downloadCSV("martaba-transactions.csv",txs());}
+function downloadCSV(name,rows){if(!rows.length)return alert("Babu bayanai.");let keys=Object.keys(rows[0]);let csv=keys.join(",")+"\n"+rows.map(r=>keys.map(k=>`"${String(r[k]??"").replace(/"/g,'""')}"`).join(",")).join("\n");let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name;a.click();}
+function renderHomePlans(){let h=document.getElementById("homePlans");if(!h)return;h.innerHTML=getPlans().filter(p=>p.active).slice(0,6).map(card).join("");}
+seed();showPlans();renderHomePlans();
+</script>
+<script>
+// === MARTABA DATA - BACKEND ===
+const API = "https://martaba-data-backend.harunasabiumaikoko.workers.dev";
+async function loadPlansFromBackend(){
+  try{
+    const res = await fetch(API + "/api/plans");
+    const plans = await res.json();
+    const formatted = plans.map((p,i)=>({id:"backend-"+p.id,network:p.network,name:p.size,type:"SME",price:p.price,active:true}));
+    localStorage.setItem("md_plans", JSON.stringify(formatted));
+    showPlans(); renderHomePlans();
+    console.log("Backend Plans:", plans);
+  }catch(e){ console.log("Backend bai tashi ba", e); }
+}
+fetch(API + "/api/health").then(r=>r.json()).then(d=>console.log("Backend LIVE:", d));
+loadPlansFromBackend();
+</script>
+</body>
+</html>
