@@ -16,56 +16,7 @@ main{max-width:1150px;margin:28px auto;padding:0 17px}.screen{display:none}.scre
 <main><section class="section"><h2>Available Networks</h2><p class="muted">Zaɓi network domin ganin data plans.</p><div class="cards">
 <div class="card"><div class="mark">MTN</div><h3>MTN</h3><button class="light" onclick="filterNet('MTN')">Duba plans</button></div><div class="card"><div class="mark">A</div><h3>Airtel</h3><button class="light" onclick="filterNet('Airtel')">Duba plans</button></div><div class="card"><div class="mark">G</div><h3>Glo</h3><button class="light" onclick="filterNet('Glo')">Duba plans</button></div><div class="card"><div class="mark">9</div><h3>9mobile</h3><button class="light" onclick="filterNet('9mobile')">Duba plans</button></div></div></section>
   <!-- QUICK SERVICES -->
-<div style="margin:18px 0 8px;">
-  <h2 style="font-size:22px;font-weight:800;color:#fff;margin:0 0 14px;">Quick Services</h2>
-  <div style="background:#141a2e;border:1px solid #232b45;border-radius:20px;padding:18px 8px 6px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 6px;text-align:center;">
 
-    <div onclick="go('buy')" style="cursor:pointer;position:relative;">
-      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0f766e;color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">HOT</span>
-      <div style="font-size:32px;">📶</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Data</p>
-    </div>
-
-    <div onclick="go('buy')" style="cursor:pointer;position:relative;">
-      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0f766e;color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">FAST</span>
-      <div style="font-size:32px;">📞</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Airtime</p>
-    </div>
-
-    <div onclick="go('buy')" style="cursor:pointer;position:relative;">
-      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0f766e;color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">SAVE</span>
-      <div style="font-size:32px;">📶➕</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Bulk Data</p>
-    </div>
-
-    <div onclick="alert('Cable TV zai zo nan ba da jimawa!')" style="cursor:pointer;">
-      <div style="font-size:32px;">📺</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Cable TV</p>
-    </div>
-
-    <div onclick="alert('Electricity zai zo nan ba da jimawa!')" style="cursor:pointer;">
-      <div style="font-size:32px;">⚡</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Electricity</p>
-    </div>
-
-    <div onclick="alert('Bulk SMS zai zo nan ba da jimawa!')" style="cursor:pointer;">
-      <div style="font-size:32px;">💬</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Bulk SMS</p>
-    </div>
-
-    <div onclick="go('wallet')" style="cursor:pointer;">
-      <div style="font-size:32px;">⬆️</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Upgrade</p>
-    </div>
-
-    <div onclick="alert('Rewards: Ka sayi Data ka samu maki!')" style="cursor:pointer;position:relative;">
-      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0f766e;color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">NEW</span>
-      <div style="font-size:32px;">🎁</div>
-      <p style="color:#fff;font-weight:700;font-size:13px;margin:10px 0 0;">Rewards</p>
-    </div>
-
-  </div>
-</div>
 <section class="section"><h2>Popular Data Plans</h2><div class="plans" id="homePlans"></div></section></main></section>
 <main>
 <section id="plans" class="screen"><div class="topline"><div><div class="eyebrow">VTU Services</div><h2>Buy Data</h2><p class="muted">Zaɓi network da plan ɗin da kake so.</p></div><button class="light" onclick="go('home')">← Home</button></div><div class="toolbar"><select id="netFilter" onchange="renderPlans()"><option value="all">Dukkan networks</option><option>MTN</option><option>Airtel</option><option>Glo</option><option>9mobile</option></select><input id="planSearch" placeholder="Nemo plan..." oninput="renderPlans()"></div><div class="plans" id="allPlans"></div><div class="notice">Demo ne: ba a haɗa VTU API ko payment gateway ba, saboda haka ba a aika data na gaske.</div></section>
