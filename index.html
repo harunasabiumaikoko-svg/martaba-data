@@ -87,6 +87,47 @@ async function loadPlansFromBackend(){
 }
 fetch(API + "/api/health").then(r=>r.json()).then(d=>console.log("Backend LIVE:", d));
 loadPlansFromBackend();
+  </script>
+  <script>
+// === FIX: Buttons su yi aiki ===
+function go(page){
+  try{ document.getElementById("menu").classList.add("hidden"); }catch(e){}
+  let views = ["home","buy","wallet","login","register","dashboard","admin"];
+  views.forEach(function(v){
+    let el = document.getElementById("view-"+v);
+    if(el) el.classList.add("hidden");
+  });
+  let target = document.getElementById("view-"+page);
+  if(target){ target.classList.remove("hidden"); window.scrollTo(0,0); return; }
+  // idan view ba shi da id, nuna ta hanyar data
+  let all = document.querySelectorAll("[data-view]");
+  all.forEach(function(el){ el.classList.add("hidden"); });
+  let t2 = document.querySelector('[data-view="'+page+'"]');
+  if(t2) t2.classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+function toggleMenu(){
+  let m = document.getElementById("menu");
+  if(m) m.classList.toggle("hidden");
+}
+// Duba plans button su yi aiki ko da go() ya gaza
+document.addEventListener("click", function(e){
+  let b = e.target.closest("button");
+  if(!b) return;
+  let txt = b.textContent || "";
+  if(txt.includes("Duba plans")){
+    let card = b.closest("div");
+    let net = card ? card.querySelector("h3, h2, p")?.textContent : "MTN";
+    // je Buy Data view
+    go("buy");
+    if(typeof showPlans === "function"){
+      try{ showPlans(net.trim()); }catch(err){ showPlans(); }
+    }
+  }
+  if(txt.includes("Buy Data Now")){ go("buy"); }
+  if(txt.includes("Buɗe Account")){ go("register"); }
+});
+</script>
 </script>
 </body>
 </html>
